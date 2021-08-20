@@ -4,14 +4,16 @@ pipeline {
 	stage('Build Maven'){
 		steps{
 			echo 'Project compile stage'
-			bat label: 'Compilation running', script: '''mvn clean package'''
+			bat label: 'Compilation running', script: '''cd Gatling-User 
+								mvn clean package'''
 	       	}
 	}
 	
 	stage('Run Gatling') {
 	   steps {
 			echo 'Project Performance Testing stage'
-			bat label: 'Test running', script: '''mvn gatling:test'''
+			bat label: 'Test running', script: '''cd Gatling-User 
+							mvn gatling:test'''
 	       
        		}
 		post {
